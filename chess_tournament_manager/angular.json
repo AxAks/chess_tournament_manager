@@ -67,7 +67,8 @@
               "browserTarget": "chess_tournament_manager:build:production"
             },
             "development": {
-              "browserTarget": "chess_tournament_manager:build:development"
+              "browserTarget": "chess_tournament_manager:build:development",
+              "port": 3200
             }
           },
           "defaultConfiguration": "development"
