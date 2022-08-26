@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     this.Api = environment.ChessManagerApi
   };
 
-  async  fetchPlayersList() {
+  async fetchPlayersList() {
     let response = await fetch(this.Api + 'players/', {
       method: 'GET'
     });
