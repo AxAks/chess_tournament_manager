@@ -1,25 +1,34 @@
 import {Component, OnInit} from '@angular/core';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import {environment} from "../environments/environment";
+
+const optionRequete = {
+  headers: new HttpHeaders({
+    'Access-Control-Allow-Origin':'*',
+  })
+};
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title!: string;
-  api!: string;
+  Api!: string;
+  PlayerList! : any
 
   ngOnInit() {
     this.title = 'Chess Tournament Manager';
-    this.api = environment.ChessManagerApi
+    this.Api = environment.ChessManagerApi
   };
 
-  async fetchPlayersList(): Promise<any> {
-    let response = await fetch(this.api + 'players/', {
+  async  fetchPlayersList() {
+    let response = await fetch(this.Api + 'players/', {
       method: 'GET'
     });
-    let playersList = await response.json()
-    return playersList
+    this.PlayerList = await response.json();
   };
 }
+
