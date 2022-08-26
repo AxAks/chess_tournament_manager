@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ChessManagerApi: 'localhost:5000/api/v1/',
+  ChessManagerApi: 'http://localhost:5000//api/v1/',
 };
 
 /*
