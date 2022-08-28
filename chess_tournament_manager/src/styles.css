@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background-image: url('assets/chess.jpg');
+  background-size: cover;
+}
+.container {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  align-items: baseline;
+}
+
+button {
+
+
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  color: greenyellow;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+table {
+
+  flex: max-content;
+  align-items: center;
+
+  flex: fit-content;
+  text-align: center;
+}
