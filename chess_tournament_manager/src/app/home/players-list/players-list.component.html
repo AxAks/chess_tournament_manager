@@ -8,11 +8,11 @@
   <table>
     <thead>
     <tr>
-      <th>Name</th>
-      <th>Identifier</th>
-      <th>Birthdate</th>
-      <th>Gender</th>
-      <th>Ranking</th>
+      <th>Participant</th>
+      <th>Identifiant</th>
+      <th>Date de naissance</th>
+      <th>Sexe</th>
+      <th>Rang</th>
     </tr>
     </thead>
     <tbody>
@@ -20,7 +20,7 @@
       <td>{{player.last_name | titlecase}} {{player.first_name | titlecase}}</td>
       <td>{{player.identifier}}</td>
       <td>{{player.birthdate | date}}</td>
-      <td>{{player.gender | titlecase}}</td>
+      <td>{{player.gender === "MALE"?  "Homme":"Femme" | titlecase}}</td>
       <td>{{player.ranking }}</td>
     </tr>
     </tbody>

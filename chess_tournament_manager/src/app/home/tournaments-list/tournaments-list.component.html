@@ -8,12 +8,12 @@
   <table>
     <thead>
     <tr>
-      <th>Tournament</th>
+      <th>Tournoi</th>
       <th>Dates</th>
       <th>Description</th>
-      <th>Number of Rounds</th>
+      <th>Nombre de tours</th>
       <th>Time Control</th>
-      <th>Status</th>
+      <th>Statut</th>
     </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
       <td>{{tournament.description | titlecase}}</td>
       <td>{{tournament.rounds}}</td>
       <td>{{tournament.time_control | titlecase}}</td>
-      <td>{{tournament.done}}</td>
+      <td>{{tournament.done === "true"?  "Terminé":"En cours" | titlecase}}</td>
     </tr>
     </tbody>
   </table>
