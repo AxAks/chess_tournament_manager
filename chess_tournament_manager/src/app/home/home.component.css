@@ -1,0 +1,10 @@
+.container {
+  align-items: center;
+}
+
+table {
+  align-items: center;
+
+  flex: fit-content;
+  text-align: center;
+}

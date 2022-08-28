@@ -1,0 +1,25 @@
+<div>Liste des joueurs enregistrés
+  <span><button (click)="fetchPlayersList()">GET</button></span>
+  <div *ngIf="playersListResults">
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Identifier</th>
+        <th>Birthdate</th>
+        <th>Gender</th>
+        <th>Ranking</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let player of playersListResults">
+        <td>{{player.last_name | titlecase}} {{player.first_name | titlecase}}</td>
+        <td>{{player.identifier}}</td>
+        <td>{{player.birthdate | date}}</td>
+        <td>{{player.gender | titlecase}}</td>
+        <td>{{player.ranking }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

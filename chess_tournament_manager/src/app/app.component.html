@@ -2,37 +2,6 @@
   <header>
     <h1>{{ title }}</h1>
   </header>
-
-  <div>Liste des joueurs enregistrés
-    <span><button (click)="fetchPlayersList()">GET</button></span>
-    <div *ngIf="playersListResults">
-      <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Identifier</th>
-          <th>Birthdate</th>
-          <th>Gender</th>
-          <th>Ranking</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let player of playersListResults">
-          <td>{{player.last_name}} {{player.first_name}}</td>
-          <td>{{player.identifier}}</td>
-          <td>{{player.birthdate}}</td>
-          <td>{{player.gender}}</td>
-          <td>{{player.ranking }}</td>
-        </tr>
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div>Liste des tournois enregistrés
-    <span><button>GET</button></span>
-  </div>
-
   <app-home></app-home>
   <router-outlet></router-outlet>
 </div>

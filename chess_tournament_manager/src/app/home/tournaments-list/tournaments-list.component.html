@@ -1,0 +1,27 @@
+<div>Liste des tournois enregistrés
+  <span><button (click)="fetchTournamentsList()">GET</button></span>
+  <div *ngIf="tournamentsListResults">
+    <table>
+      <thead>
+      <tr>
+        <th>Tournament</th>
+        <th>Dates</th>
+        <th>Description</th>
+        <th>Number of Rounds</th>
+        <th>Time Control</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let tournament of tournamentsListResults">
+        <td>{{tournament.name | titlecase}} à {{tournament.location | titlecase}}</td>
+        <td>du {{tournament.start_date | date }} au {{tournament.end_date | date}}</td>
+        <td>{{tournament.description | titlecase}}</td>
+        <td>{{tournament.rounds}}</td>
+        <td>{{tournament.time_control | titlecase}}</td>
+        <td>{{tournament.done}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
