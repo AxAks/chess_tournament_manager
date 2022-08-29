@@ -1,6 +1,8 @@
 ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  background-color: black;
+  opacity: 0.8;
 }
 
 ul li{
