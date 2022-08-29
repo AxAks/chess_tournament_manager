@@ -1,6 +1,8 @@
 body {
   color: ivory;
-  height: 1600px;
 }
 
-
+section {
+  height :1600px;
+  background-color: green;
+}

@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlayersListComponent } from './home/players-list/players-list.component';
 import { TournamentsListComponent } from './home/tournaments-list/tournaments-list.component';
+import { PlayersComponent } from './players/players.component';
+import { TournamentsComponent } from './tournaments/tournaments.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PlayersListComponent,
-    TournamentsListComponent
+    TournamentsListComponent,
+    PlayersComponent,
+    TournamentsComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,

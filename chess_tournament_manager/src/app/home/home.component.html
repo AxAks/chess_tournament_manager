@@ -1,4 +1,25 @@
-<div>
-  <app-tournaments-list></app-tournaments-list>
-  <app-players-list></app-players-list>
-</div>
+<main>
+  <section>
+    <div>
+      <a [routerLink]="['tournaments_menu']" routerLinkActive="active" (click)="toTournamentsMenu()">
+        <span class="arrow left"></span>
+        Gestion des Tournois
+        <span class="arrow right"></span>
+      </a>
+    </div>
+    <div>
+      <a routerLink="players_menu" routerLinkActive="active" (click)="toPlayersMenu()">
+        <span class="arrow left"></span>
+        Gestion des Participants
+        <span class="arrow right"></span>
+      </a>
+    </div>
+    <div>
+      <a>
+        <span class="arrow left"></span>
+        Nouveau tournoi
+        <span class="arrow right"></span>
+      </a>
+    </div>
+  </section>
+</main>

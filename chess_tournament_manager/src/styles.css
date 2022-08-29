@@ -4,6 +4,17 @@ body {
   background-image: url('assets/chess.jpg');
   background-size: cover;
 }
+
+nav {
+  text-align: left;
+}
+
+nav ul {
+  text-align: left;
+  list-style: none;
+  opacity: 0.80;
+}
+
 .container {
   text-align: center;
 }
@@ -13,16 +24,10 @@ body {
   align-items: baseline;
 }
 
-button {
-
-
-}
-
 .arrow {
-  border: solid black;
+  border: solid yellowgreen;
   border-width: 0 3px 3px 0;
   display: inline-block;
-  color: greenyellow;
   padding: 3px;
 }
 
