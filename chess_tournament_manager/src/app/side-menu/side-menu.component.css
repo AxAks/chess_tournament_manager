@@ -1,5 +1,11 @@
 ul {
   display: flex;
+  justify-content: space-around;
+}
+
+ul li{
+  display: flex;
   flex-basis: max-content;
   flex-direction: column;
+  padding: 1rem;
 }
