@@ -15,10 +15,4 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  toPlayersMenu(){
-    this.router.navigate(['players_menu']);  // define your component where you want to go
-  }
-  toTournamentsMenu(){
-    this.router.navigate(['tournaments_menu']);  // define your component where you want to go
-  }
 }
