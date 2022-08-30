@@ -2,6 +2,10 @@ body {
   color: ivory;
 }
 
+h1 {
+  font-family: cursive;
+}
+
 section {
   height :1600px;
   background-color: green;

@@ -1,8 +1,7 @@
 <h3>
    <span>Liste des joueurs enregistrés </span>
-  <span>
-    <button class="arrow down" (click)="fetchPlayersList()"></button>
-  </span>
+  <div><a>tri par nom <span class="arrow right" (click)="fetchPlayersList()"></span></a></div>
+  <div><a>tri par classement <span class="arrow right" (click)="fetchPlayersList()"></span></a></div>
 </h3>
 <div class="flex" *ngIf="playersListResults">
   <table>

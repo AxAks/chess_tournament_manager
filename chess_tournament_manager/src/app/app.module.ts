@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PlayersListComponent } from './home/players-list/players-list.component';
-import { TournamentsListComponent } from './home/tournaments-list/tournaments-list.component';
-import { PlayersComponent } from './players/players.component';
-import { TournamentsComponent } from './tournaments/tournaments.component';
+import { PlayersListComponent } from './home/players/players-list/players-list.component';
+import { TournamentsListComponent } from './home/tournaments/tournaments-list/tournaments-list.component';
+import { PlayersComponent } from './home/players/players.component';
+import { TournamentsComponent } from './home/tournaments/tournaments.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 
 @NgModule({

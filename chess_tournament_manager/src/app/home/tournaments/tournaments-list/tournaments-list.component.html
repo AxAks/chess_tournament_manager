@@ -1,8 +1,9 @@
 <h3>
-  Liste des tournois enregistrés
-  <span>
-    <button class="arrow down" (click)="fetchTournamentsList()"></button>
-  </span>
+  <span>Liste des tournois enregistrés </span>
+  <div><a>tri par nom <span class="arrow right" (click)="fetchTournamentsList()"></span></a></div>
+  <div><a>tri par dates <span class="arrow right" (click)="fetchTournamentsList()"></span></a></div>
+  <div><a>tri par lieu <span class="arrow right" (click)="fetchTournamentsList()"></span></a></div>
+
 </h3>
 <div class="flex" *ngIf="tournamentsListResults">
   <table>
@@ -23,7 +24,7 @@
       <td>{{tournament.description | titlecase}}</td>
       <td>{{tournament.rounds}}</td>
       <td>{{tournament.time_control | titlecase}}</td>
-      <td>{{tournament.done === "true"?  "Terminé":"En cours" | titlecase}}</td>
+      <td>{{tournament.done === "true" ? "Terminé" : "En cours" | titlecase}}</td>
     </tr>
     </tbody>
   </table>
