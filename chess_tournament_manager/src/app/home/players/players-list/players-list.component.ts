@@ -10,14 +10,15 @@ import {environment} from "../../../../environments/environment";
 export class PlayersListComponent implements OnInit {
   api!: string;
   playersListResults!: any;
+  _playersListUrl!: string;
 
-  private _playersListUrl = this.api + 'players/'
 
   constructor(private _httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
     this.api = environment.ChessManagerApi;
+    this._playersListUrl = this.api + 'players/'
   }
 
   async fetchPlayersList(): Promise<any> {
