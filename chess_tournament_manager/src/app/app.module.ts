@@ -9,6 +9,7 @@ import { TournamentsListComponent } from './home/tournaments/tournaments-list/to
 import { PlayersComponent } from './home/players/players.component';
 import { TournamentsComponent } from './home/tournaments/tournaments.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     SideMenuComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],

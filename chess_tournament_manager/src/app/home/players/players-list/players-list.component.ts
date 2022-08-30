@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {environment} from "../../../../environments/environment";
 
 @Component({
@@ -10,24 +11,26 @@ export class PlayersListComponent implements OnInit {
   api!: string;
   playersListResults!: any;
 
-  constructor() { }
+  private _playersListUrl = this.api + 'players/'
+
+  constructor(private _httpClient: HttpClient) {
+  }
 
   ngOnInit(): void {
     this.api = environment.ChessManagerApi;
   }
 
   async fetchPlayersList(): Promise<any> {
-    let response = await fetch(this.api + 'players/', {
-      method: 'GET',
-    });
-    let playersList = await response.json();
-    let playersListResults = await playersList['players'];
-    let tempPlayersList= [];
-    if (playersListResults.length > 0) {
-      for (const player of playersListResults) {
-        tempPlayersList.push(player);
+    this._httpClient.get(this._playersListUrl).subscribe(playersListResponse => {
+      // @ts-ignore
+      let playersListResults = playersListResponse['players'];
+      let tempPlayersList = [];
+      if (playersListResults.length > 0) {
+        for (const player of playersListResults) {
+          tempPlayersList.push(player);
+        }
+        this.playersListResults = tempPlayersList;
       }
-      this.playersListResults = tempPlayersList;
-    }
+    });
   };
 }
