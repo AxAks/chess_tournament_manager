@@ -3,8 +3,8 @@
     <li><a>Ajouter un joueur</a></li>
     <li><a>Rechercher par identifiant</a></li>
     <li><a>Mise à jour du classement d'un joueur</a></li>
-    <li><a>Lister les joueurs par Nom</a></li>
+    <li><a>Lister les joueurs par Nom <span class="arrow right" (click)="fetchPlayersList()"></span></a></li>
     <li><a>Lister les joueurs par classement</a></li>
   </ul>
-  <app-players-list></app-players-list>
+    <app-players-list *ngIf="playersListResults" [playersListResults]="playersListResults"></app-players-list>
 </div>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from "../../../../environments/environment";
 
@@ -8,20 +8,20 @@ import {environment} from "../../../../environments/environment";
   styleUrls: ['./players-list.component.css']
 })
 export class PlayersListComponent implements OnInit {
-  api!: string;
+/*  api!: string;
   playersListResults!: any;
-  _playersListUrl!: string;
-
+  _playersListUrl!: string;*/
+@Input() playersListResults : any;
 
   constructor(private _httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.api = environment.ChessManagerApi;
-    this._playersListUrl = this.api + 'players/'
+    /* this.api = environment.ChessManagerApi;
+    this._playersListUrl = this.api + 'players/'*/
   }
 
-  async fetchPlayersList(): Promise<any> {
+/*  async fetchPlayersList(): Promise<any> {
     this._httpClient.get(this._playersListUrl).subscribe(playersListResponse => {
       // @ts-ignore
       let playersListResults = playersListResponse['players'];
@@ -33,5 +33,5 @@ export class PlayersListComponent implements OnInit {
         this.playersListResults = tempPlayersList;
       }
     });
-  };
+  };*/
 }
