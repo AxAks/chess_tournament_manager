@@ -19,10 +19,25 @@ export class PlayersComponent implements OnInit {
   ngOnInit(): void {
     this.api = environment.ChessManagerApi;
     this._playersListUrl = this.api + 'players/'
-  }
+}
 
-  async fetchPlayersList(): Promise<any> {
-    this._httpClient.get(this._playersListUrl).subscribe(playersListResponse => {
+  async fetchPlayersList(sorted_by: string): Promise<any> {
+    let request = this._httpClient.get(this._playersListUrl)
+    if (sorted_by) {
+      let request = this._httpClient.get(this._playersListUrl, {params: {sort_by: sorted_by}})
+      request.subscribe(playersListResponse => {
+        // @ts-ignore
+        let playersListResults = playersListResponse['players'];
+        let tempPlayersList = [];
+        if (playersListResults.length > 0) {
+          for (const player of playersListResults) {
+            tempPlayersList.push(player);
+          }
+          this.playersListResults = tempPlayersList;
+        }
+      });
+    } else {
+    request.subscribe(playersListResponse => {
       // @ts-ignore
       let playersListResults = playersListResponse['players'];
       let tempPlayersList = [];
@@ -33,5 +48,6 @@ export class PlayersComponent implements OnInit {
         this.playersListResults = tempPlayersList;
       }
     });
+  }
   };
 }

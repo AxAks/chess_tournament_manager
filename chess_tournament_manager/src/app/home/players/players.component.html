@@ -1,10 +1,10 @@
 <div>
-  <ul>
-    <li><a>Ajouter un joueur</a></li>
-    <li><a>Rechercher par identifiant</a></li>
-    <li><a>Mise à jour du classement d'un joueur</a></li>
-    <li><a>Lister les joueurs par Nom <span class="arrow right" (click)="fetchPlayersList()"></span></a></li>
-    <li><a>Lister les joueurs par classement</a></li>
-  </ul>
+    <ul>
+        <li><a>Ajouter un joueur</a></li>
+        <li><a>Rechercher par identifiant</a></li>
+        <li><a>Mise à jour du classement d'un joueur</a></li>
+        <li><a (click)="fetchPlayersList('')">Lister les joueurs par Nom <span class="arrow right"></span></a></li>
+        <li><a (click)="fetchPlayersList('ranking')">Lister les joueurs par Classement <span class="arrow right"></span></a></li>
+    </ul>
     <app-players-list *ngIf="playersListResults" [playersListResults]="playersListResults"></app-players-list>
 </div>
