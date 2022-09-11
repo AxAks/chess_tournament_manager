@@ -1,5 +1,8 @@
 <nav>
   <ul>
+    <li *ngIf="data_status">{{ data_status }}</li>
+  </ul>
+  <ul>
     <li>
       <a routerLink=""><span class="arrow left"></span> Accueil <span class="arrow right"></span></a>
     </li>
@@ -10,10 +13,10 @@
     </li>
 
     <li>
-      <a><span class="arrow up"></span> Charger <span class="arrow up"></span></a>
+      <a (click)="loadData()"><span class="arrow up"></span> Charger <span class="arrow up"></span></a>
     </li>
     <li>
-      <a><span class="arrow down"></span> Sauvegarder <span class="arrow down"></span></a>
+      <a (click)="saveData()"><span class="arrow down"></span> Sauvegarder <span class="arrow down"></span></a>
     </li>
   </ul>
 
