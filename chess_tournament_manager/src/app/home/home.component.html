@@ -1,9 +1,8 @@
 <main>
-<h3>
-  Accueil
-</h3>
-
   <section>
+    <h3>
+      {{ pageTitle | titlecase }}
+    </h3>
     <div>
       <a [routerLink]="['tournaments_menu']" routerLinkActive="active">
         <span class="arrow left"></span>

@@ -1,7 +1,7 @@
 h3 {
-  display: flex;
-  flex-direction: column;
-  background-color: ivory;
-  color: darkblue;
-  padding: 0.5rem
+    display: flex;
+    flex-direction: column;
+    background-color: ivory;
+    color: darkblue;
+    padding: 0.5rem
 }

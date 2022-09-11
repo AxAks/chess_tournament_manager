@@ -1,27 +1,29 @@
 <h3>
-   <span>Liste des joueurs enregistrés </span>
-<!--  <div><a>tri par nom <span class="arrow right" (click)="fetchPlayersList()"></span></a></div>
+    <span>Liste des joueurs enregistrés </span>
+    <!--  <div><a>tri par nom <span class="arrow right" (click)="fetchPlayersList()"></span></a></div>
   <div><a>tri par classement <span class="arrow right" (click)="fetchPlayersList()"></span></a></div>-->
 </h3>
 <div class="flex" *ngIf="playersListResults">
-  <table>
-    <thead>
-    <tr>
-      <th>Participant</th>
-      <th>Identifiant</th>
-      <th>Date de naissance</th>
-      <th>Sexe</th>
-      <th>Rang</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let player of playersListResults">
-      <td>{{player.last_name | titlecase}} {{player.first_name | titlecase}}</td>
-      <td>{{player.identifier}}</td>
-      <td>{{player.birthdate | date}}</td>
-      <td>{{player.gender === "MALE"?  "Homme":"Femme" | titlecase}}</td>
-      <td>{{player.ranking }}</td>
-    </tr>
-    </tbody>
-  </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Participant</th>
+                <th>Identifiant</th>
+                <th>Date de naissance</th>
+                <th>Sexe</th>
+                <th>Classement</th>
+                <th>Mise à jour du classement ?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of playersListResults">
+                <td>{{player.last_name | titlecase}} {{player.first_name | titlecase}}</td>
+                <td>{{player.identifier}}</td>
+                <td>{{player.birthdate | date}}</td>
+                <td>{{player.gender === "MALE"? "Homme":"Femme" | titlecase}}</td>
+                <td><b>{{player.ranking }}</b></td>
+                <td><a>Changer</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

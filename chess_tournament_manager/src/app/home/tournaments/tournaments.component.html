@@ -1,10 +1,13 @@
 <div>
+  <h3>
+    {{ pageTitle | titlecase }}
+  </h3>
     <ul>
       <li><a>Ajouter un tournoi</a></li>
       <li><a>Sélectionner un tournoi</a></li>
       <li><a>Rechercher un tournoi</a></li>
-      <li><a>Lister les tournois par date</a></li>
-      <li><a>Lister les tournois par lieu</a></li>
+      <li><a (click)="fetchTournamentsList()">Lister les tournois par date<span class="arrow right"></span></a></li>
+      <li><a (click)="fetchTournamentsList()">Lister les tournois par lieu<span class="arrow right"></span></a></li>
     </ul>
-  <app-tournaments-list></app-tournaments-list>
+  <app-tournaments-list *ngIf="tournamentsListResults" [tournamentsListResults]="tournamentsListResults"></app-tournaments-list>
 </div>

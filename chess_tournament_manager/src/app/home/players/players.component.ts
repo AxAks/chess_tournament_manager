@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 
@@ -9,9 +9,9 @@ import {environment} from "../../../environments/environment";
 })
 export class PlayersComponent implements OnInit {
   api!: string;
+  page_title = 'Joueurs'
   playersListResults!: any;
   _playersListUrl!: string;
-
 
   constructor(private _httpClient: HttpClient) {
   }
