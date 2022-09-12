@@ -1,0 +1,67 @@
+<form>
+  <div class="form-group">
+    <label for="name">Nom: </label>
+    <input type="text" class="form-control" id="name" required
+           [(ngModel)]="model.name" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="location">Lieu: </label>
+    <input type="text" class="form-control" id="location"
+           [(ngModel)]="model.location" name="location">
+  </div>
+
+  <div class="form-group">
+    <label for="rounds">Rounds: </label>
+    <input type="text" class="form-control" id="rounds"
+           [(ngModel)]="model.rounds" name="rounds">
+  </div>
+
+  <div class="form-group">
+    <label for="startDate">Date de Naissance: </label>
+    <input type="text" class="form-control" id="startDate"
+           [(ngModel)]="model.startDate" name="startDate">
+  </div>
+
+  <div class="form-group">
+    <label for="endDate">Date de Naissance: </label>
+    <input type="text" class="form-control" id="endDate"
+           [(ngModel)]="model.endDate" name="endDate">
+  </div>
+
+  <div class="form-group">
+    <label for="identifiersList">Liste des Joueurs: </label>
+    <input type="text" class="form-control" id="identifiersList"
+           [(ngModel)]="model.identifiersList" name="identifiersList">
+  </div>
+
+  <div class="form-group">
+    <label for="timeControl">Time Control: </label>
+    <input type="text" class="form-control" id="timeControl"
+           [(ngModel)]="model.timeControl" name="timeControl">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description: </label>
+    <input type="text" class="form-control" id="description"
+           [(ngModel)]="model.description" name="description">
+  </div>
+
+  <div class="form-group">
+    <label for="roundsList">Rounds List: </label>
+    <input type="text" class="form-control" id="roundsList"
+           [(ngModel)]="model.roundsList" name="roundsList">
+  </div>
+
+  <div class="form-group">
+    <label for="totalResults">Total Results: </label>
+    <input type="text" class="form-control" id="totalResults"
+           [(ngModel)]="model.totalResults" name="totalResults">
+  </div>
+
+  <div class="form-group">
+    <label for="notPlayedYet">Not Played Yet: </label>
+    <input type="text" class="form-control" id="notPlayedYet"
+           [(ngModel)]="model.notPlayedYet" name="notPlayedYet">
+  </div>
+</form>

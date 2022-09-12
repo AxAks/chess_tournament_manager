@@ -1,6 +1,7 @@
 import { Component, Output, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
+import {CommonService} from "../../commons/commons.service";
 
 @Component({
   selector: 'app-players',
@@ -9,16 +10,21 @@ import {environment} from "../../../environments/environment";
 })
 export class PlayersComponent implements OnInit {
   api!: string;
+  pageTitle!: string;
   playersListResults!: any;
   _playersListUrl!: string;
 
-  constructor(private _httpClient: HttpClient) {
+  constructor(private _httpClient: HttpClient, private service: CommonService) {
   }
 
   ngOnInit(): void {
     this.api = environment.ChessManagerApi;
     this._playersListUrl = this.api + 'players/'
+    this.service.pageTitle$.subscribe(res => this.pageTitle = res);
 }
+  changePageTitleOnClick(newPageTitle: string) {
+    this.service.changePageTitle(newPageTitle);  //invoke new Data
+  }
 
   async fetchPlayersList(sorted_by: string): Promise<any> {
     let request = this._httpClient.get(this._playersListUrl)

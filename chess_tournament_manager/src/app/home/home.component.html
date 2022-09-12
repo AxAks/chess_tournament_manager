@@ -2,14 +2,14 @@
   <section>
 
     <div>
-      <a [routerLink]="['tournaments_menu']" routerLinkActive="active">
+      <a [routerLink]="['tournaments_menu']" routerLinkActive="active" (click)="changePageTitleOnClick('Tournois')">
         <span class="arrow left"></span>
         Gestion des Tournois
         <span class="arrow right"></span>
       </a>
     </div>
     <div>
-      <a routerLink="players_menu" routerLinkActive="active">
+      <a routerLink="players_menu" routerLinkActive="active" (click)="changePageTitleOnClick('Joueurs')">
         <span class="arrow left"></span>
         Gestion des Participants
         <span class="arrow right"></span>

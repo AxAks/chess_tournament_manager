@@ -13,6 +13,7 @@ export class TournamentsComponent implements OnInit {
   api!: string;
   tournamentsListResults!: any;
   _tournamentsListUrl!: string;
+  pageTitle: string = 'Tournois';
 
   constructor(private _httpClient: HttpClient, private service: CommonService) {
   }
@@ -21,6 +22,11 @@ export class TournamentsComponent implements OnInit {
   ngOnInit(): void {
     this.api = environment.ChessManagerApi;
     this._tournamentsListUrl = this.api + 'tournaments/';
+    this.service.pageTitle$.subscribe(res => this.pageTitle = res);
+  }
+
+  changePageTitleOnClick(newPageTitle: string) {
+    this.service.changePageTitle(newPageTitle);  //invoke new Data
   }
 
   async fetchTournamentsList(): Promise<any> {

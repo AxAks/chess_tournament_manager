@@ -1,6 +1,8 @@
 <div>
     <ul>
-      <li><a>Ajouter un tournoi</a></li>
+      <li>
+        <a routerLink="add_tournament" (click)="changePageTitleOnClick('Ajouter un tournoi')">Ajouter un tournoi<span class="arrow right"></span></a>
+      </li>
       <li><a>Sélectionner un tournoi</a></li>
       <li><a>Rechercher un tournoi</a></li>
       <li><a (click)="fetchTournamentsList()">Lister les tournois par date<span class="arrow right"></span></a></li>

@@ -15,4 +15,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  changePageTitleOnClick(newPageTitle: string) {
+    this.service.changePageTitle(newPageTitle);  //invoke new Data
+  }
 }
