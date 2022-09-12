@@ -1,6 +1,7 @@
 import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {CommonService} from "../../commons/commons.service";
 
 @Component({
   selector: 'app-tournaments',
@@ -10,21 +11,17 @@ import {HttpClient} from "@angular/common/http";
 
 export class TournamentsComponent implements OnInit {
   api!: string;
-  pageTitle: string = 'Tournois';
   tournamentsListResults!: any;
   _tournamentsListUrl!: string;
-  @Output() PageTitleEvent = new EventEmitter<string>();
 
-  constructor(private _httpClient: HttpClient) {
-    this.PageTitleEvent.emit(this.pageTitle);
+  constructor(private _httpClient: HttpClient, private service: CommonService) {
   }
 
 
   ngOnInit(): void {
     this.api = environment.ChessManagerApi;
-    this._tournamentsListUrl = this.api + 'tournaments/'
+    this._tournamentsListUrl = this.api + 'tournaments/';
   }
-
 
   async fetchTournamentsList(): Promise<any> {
     this._httpClient.get(this._tournamentsListUrl).subscribe(tournamentsListResponse => {

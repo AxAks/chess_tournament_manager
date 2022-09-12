@@ -18,6 +18,7 @@ nav ul {
 .container {
   text-align: center;
   font-family: cursive;
+  font-size: larger ;
 }
 
 .flex {
@@ -59,4 +60,25 @@ table {
 
   flex: fit-content;
   text-align: center;
+}
+
+a:link {
+  color: ivory;
+  cursor: pointer;
+  outline: ivory;
+  text-decoration: none;
+}
+
+a:hover {
+  color: ivory;
+  cursor: pointer;
+  outline: ivory;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: ivory;
+  cursor: pointer;
+  outline: gray;
+  text-decoration: none;
 }

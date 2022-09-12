@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {CommonService} from "../commons/commons.service";
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,9 @@ import {Router} from '@angular/router';
 
 export class HomeComponent implements OnInit {
   pageTitle!: string;
-  PageTitleEvent!: string
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: CommonService) {
   }
 
   ngOnInit(): void {
-    this.titleHandler(this.PageTitleEvent='Accueil')
-  }
-
-  titleHandler(PageTitleEvent: string) {
-    this.pageTitle = PageTitleEvent
   }
 }

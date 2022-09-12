@@ -9,7 +9,6 @@ import {environment} from "../../../environments/environment";
 })
 export class PlayersComponent implements OnInit {
   api!: string;
-  page_title = 'Joueurs'
   playersListResults!: any;
   _playersListUrl!: string;
 

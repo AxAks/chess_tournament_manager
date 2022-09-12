@@ -4,25 +4,21 @@
   </ul>
   <ul>
     <li>
-      <a routerLink=""><span class="arrow left"></span> Accueil <span class="arrow right"></span></a>
+      <a routerLink="" (click)="changePageTitleOnClick('Accueil')"><span class="arrow left"></span> Accueil <span class="arrow right"></span></a>
     </li>
   </ul>
   <ul>
     <li>
-      <a><span class="arrow left"></span><span class="arrow left"></span> Page précédente </a>
-    </li>
-
-    <li>
-      <a (click)="loadData()"><span class="arrow up"></span> Charger <span class="arrow up"></span></a>
+      <a routerLink="" (click)="loadData()"><span class="arrow up"></span> Charger <span class="arrow up"></span></a>
     </li>
     <li>
-      <a (click)="saveData()"><span class="arrow down"></span> Sauvegarder <span class="arrow down"></span></a>
+      <a routerLink="" (click)="saveData()"><span class="arrow down"></span> Sauvegarder <span class="arrow down"></span></a>
     </li>
   </ul>
 
   <ul>
     <li>
-      <a routerLink="players_menu">Gestion des Participants <span class="arrow right"></span></a>
+      <a routerLink="players_menu" (click)="changePageTitleOnClick('Joueurs')">Gestion des Participants <span class="arrow right"></span></a>
     </li>
     <li>
       <a>
@@ -30,10 +26,14 @@
           <span class="arrow left"></span>
             Nouveau tournoi
           <span class="arrow right"></span>
-        <span class="arrow right"></span></a>
+        <span class="arrow right"></span>
+      </a>
     </li>
     <li>
-      <a routerLink="tournaments_menu"> Gestion des Tournois <span class="arrow right"></span></a>
+      <a routerLink="tournaments_menu" (click)="changePageTitleOnClick('Tournois')">
+        Gestion des Tournois
+        <span class="arrow right"></span>
+      </a>
     </li>
   </ul>
 </nav>
