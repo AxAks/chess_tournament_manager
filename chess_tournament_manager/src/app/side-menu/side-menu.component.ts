@@ -31,7 +31,7 @@ export class SideMenuComponent implements OnInit {
   };
 
   changePageTitleOnClick(newPageTitle: string) {
-    this.service.changePageTitle(newPageTitle);  //invoke new Data
+    this.service.changePageTitle(newPageTitle);
   }
 
   async saveData(): Promise<any> {

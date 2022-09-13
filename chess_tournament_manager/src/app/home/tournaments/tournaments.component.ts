@@ -29,17 +29,33 @@ export class TournamentsComponent implements OnInit {
     this.service.changePageTitle(newPageTitle);  //invoke new Data
   }
 
-  async fetchTournamentsList(): Promise<any> {
-    this._httpClient.get(this._tournamentsListUrl).subscribe(tournamentsListResponse => {
-      // @ts-ignore
-      let tournamentsListResults = tournamentsListResponse['tournaments'];
-      let tempTournamentsList= [];
-      if (tournamentsListResults.length > 0) {
-        for (const tournament of tournamentsListResults) {
-          tempTournamentsList.push(tournament);
+  async fetchTournamentsList(sorted_by: string): Promise<any> {
+    let request = this._httpClient.get(this._tournamentsListUrl)
+    if (sorted_by) {
+      let request = this._httpClient.get(this._tournamentsListUrl, {params: {sort_by: sorted_by}})
+      request.subscribe(tournamentsListResponse => {
+        // @ts-ignore
+        let tournamentsListResults = tournamentsListResponse['tournaments'];
+        let tempTournamentsList = [];
+        if (tournamentsListResults.length > 0) {
+          for (const tournament of tournamentsListResults) {
+            tempTournamentsList.push(tournament);
+          }
+          this.tournamentsListResults = tempTournamentsList;
         }
-        this.tournamentsListResults = tempTournamentsList;
-      }
-    });
+      });
+    } else {
+      request.subscribe(tournamentsListResponse => {
+        // @ts-ignore
+        let tournamentsListResults = tournamentsListResponse['tournaments'];
+        let tempTournamentsList = [];
+        if (tournamentsListResults.length > 0) {
+          for (const tournament of tournamentsListResults) {
+            tempTournamentsList.push(tournament);
+          }
+          this.tournamentsListResults = tempTournamentsList;
+        }
+      })
+    };
   };
 }
