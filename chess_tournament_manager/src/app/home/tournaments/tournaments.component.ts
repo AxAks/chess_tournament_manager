@@ -14,6 +14,9 @@ export class TournamentsComponent implements OnInit {
   tournamentsListResults!: any;
   _tournamentsListUrl!: string;
   pageTitle: string = 'Tournois';
+  all_tournaments_list: any;
+  tournamentsSortedByDates: any;
+  tournamentsSortedByLocation: any;
 
   constructor(private _httpClient: HttpClient, private service: CommonService) {
   }
@@ -23,39 +26,36 @@ export class TournamentsComponent implements OnInit {
     this.api = environment.ChessManagerApi;
     this._tournamentsListUrl = this.api + 'tournaments/';
     this.service.pageTitle$.subscribe(res => this.pageTitle = res);
+    this.all_tournaments_list = this.fetchTournamentsList()
   }
 
   changePageTitleOnClick(newPageTitle: string) {
     this.service.changePageTitle(newPageTitle);  //invoke new Data
   }
 
-  async fetchTournamentsList(sorted_by: string): Promise<any> {
-    let request = this._httpClient.get(this._tournamentsListUrl)
-    if (sorted_by) {
-      let request = this._httpClient.get(this._tournamentsListUrl, {params: {sort_by: sorted_by}})
-      request.subscribe(tournamentsListResponse => {
-        // @ts-ignore
-        let tournamentsListResults = tournamentsListResponse['tournaments'];
-        let tempTournamentsList = [];
-        if (tournamentsListResults.length > 0) {
-          for (const tournament of tournamentsListResults) {
-            tempTournamentsList.push(tournament);
-          }
-          this.tournamentsListResults = tempTournamentsList;
+  sortTournamentsByDates(tournaments: any) {
+    let tournamentsSortedByDates = tournaments.sort((a: { start_date: string },
+                                           b: { start_date: string }) => (a.start_date > b.start_date))
+    this.tournamentsSortedByDates = tournamentsSortedByDates
+  }
+
+  sortTournamentsByLocation(tournaments: any) {
+    let tournamentsSortedByLocation = tournaments.sort((a: { location: string; },
+                                              b: { location: string; }) => (a.location > b.location))
+    this.tournamentsSortedByLocation = tournamentsSortedByLocation
+  }
+
+  async fetchTournamentsList(): Promise<any> {
+    this._httpClient.get(this._tournamentsListUrl).subscribe(tournamentsListResponse => {
+      // @ts-ignore
+      let tournamentsListResults = tournamentsListResponse['tournaments'];
+      let tempTournamentsList = [];
+      if (tournamentsListResults.length > 0) {
+        for (const tournament of tournamentsListResults) {
+          tempTournamentsList.push(tournament);
         }
-      });
-    } else {
-      request.subscribe(tournamentsListResponse => {
-        // @ts-ignore
-        let tournamentsListResults = tournamentsListResponse['tournaments'];
-        let tempTournamentsList = [];
-        if (tournamentsListResults.length > 0) {
-          for (const tournament of tournamentsListResults) {
-            tempTournamentsList.push(tournament);
-          }
-          this.tournamentsListResults = tempTournamentsList;
-        }
-      })
-    };
+        this.all_tournaments_list = tempTournamentsList;
+      }
+    });
   };
 }

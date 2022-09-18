@@ -7,8 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 
 export class TournamentsListComponent implements OnInit {
-  @Input() tournamentsListResults: any;
-
+  @Input() all_tournaments_list : any;
+  @Input() tournamentsSortedByDates : any;
+  @Input() tournamentsSortedByLocation : any;
   constructor() {
   }
 

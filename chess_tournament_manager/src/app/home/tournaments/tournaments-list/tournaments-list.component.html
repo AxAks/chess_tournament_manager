@@ -2,7 +2,7 @@
   <span>Liste des tournois enregistrés </span>
 
 </h3>
-<div class="flex" *ngIf="tournamentsListResults">
+<div class="flex" *ngIf="tournamentsSortedByDates || tournamentsSortedByLocation">
   <table>
     <thead>
     <tr>
@@ -15,7 +15,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let tournament of tournamentsListResults">
+    <tr *ngFor="let tournament of tournamentsSortedByDates || tournamentsSortedByLocation">
       <td>{{tournament.name | titlecase}} à {{tournament.location | titlecase}}</td>
       <td>du {{tournament.start_date | date }} au {{tournament.end_date | date}}</td>
       <td>{{tournament.description | titlecase}}</td>

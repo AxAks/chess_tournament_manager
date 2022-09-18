@@ -5,8 +5,10 @@
       </li>
       <li><a>Sélectionner un tournoi</a></li>
       <li><a>Rechercher un tournoi</a></li>
-      <li><a (click)="fetchTournamentsList('start_date')">Lister les tournois par date<span class="arrow right"></span></a></li>
-      <li><a (click)="fetchTournamentsList('location')">Lister les tournois par lieu<span class="arrow right"></span></a></li>
+      <li><a (click)="sortTournamentsByDates(all_tournaments_list)">Lister les tournois par date<span class="arrow right"></span></a></li>
+      <li><a (click)="sortTournamentsByLocation(all_tournaments_list)">Lister les tournois par lieu<span class="arrow right"></span></a></li>
     </ul>
-  <app-tournaments-list *ngIf="tournamentsListResults" [tournamentsListResults]="tournamentsListResults"></app-tournaments-list>
+  <app-tournaments-list *ngIf="tournamentsSortedByDates || tournamentsSortedByLocation"
+                        [tournamentsSortedByDates]="tournamentsSortedByDates"
+                        [tournamentsSortedByLocation]="tournamentsSortedByLocation">></app-tournaments-list>
 </div>
