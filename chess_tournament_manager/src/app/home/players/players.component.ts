@@ -1,4 +1,4 @@
-import {Component, Output, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {CommonService} from "../../commons/commons.service";
@@ -32,7 +32,9 @@ export class PlayersComponent implements OnInit {
   }
 
   sortPlayerByName(players: any) {
-    this.playerSortedByName = players
+    let playerSortedByName = players.sort((a: { last_name: string; },
+                                           b: { last_name: string; }) => (a.last_name > b.last_name))
+    this.playerSortedByName = playerSortedByName
   }
 
 
