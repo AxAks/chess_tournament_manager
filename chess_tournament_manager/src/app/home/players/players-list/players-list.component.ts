@@ -7,7 +7,9 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./players-list.component.css']
 })
 export class PlayersListComponent implements OnInit {
-@Input() playersListResults : any;
+@Input() all_players_list : any;
+@Input() playerSortedByName : any;
+@Input() playerSortedByRanking : any;
 
   constructor(private _httpClient: HttpClient) {
   }

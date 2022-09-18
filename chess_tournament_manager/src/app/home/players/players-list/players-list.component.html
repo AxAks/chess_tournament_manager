@@ -1,9 +1,7 @@
 <h3>
     <span>Liste des joueurs enregistrés </span>
-    <!--  <div><a>tri par nom <span class="arrow right" (click)="fetchPlayersList()"></span></a></div>
-  <div><a>tri par classement <span class="arrow right" (click)="fetchPlayersList()"></span></a></div>-->
 </h3>
-<div class="flex" *ngIf="playersListResults">
+<div class="flex" *ngIf="playerSortedByRanking || playerSortedByName">
     <table>
         <thead>
             <tr>
@@ -16,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let player of playersListResults">
+            <tr *ngFor="let player of playerSortedByRanking || playerSortedByName">
                 <td>{{player.last_name | titlecase}} {{player.first_name | titlecase}}</td>
                 <td>{{player.identifier}}</td>
                 <td>{{player.birthdate | date}}</td>

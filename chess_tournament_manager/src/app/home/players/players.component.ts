@@ -1,4 +1,4 @@
-import { Component, Output, OnInit } from '@angular/core';
+import {Component, Output, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {CommonService} from "../../commons/commons.service";
@@ -13,6 +13,9 @@ export class PlayersComponent implements OnInit {
   pageTitle!: string;
   playersListResults!: any;
   _playersListUrl!: string;
+  all_players_list!: any;
+  playerSortedByName: any;
+  playerSortedByRanking: any;
 
   constructor(private _httpClient: HttpClient, private service: CommonService) {
   }
@@ -21,28 +24,26 @@ export class PlayersComponent implements OnInit {
     this.api = environment.ChessManagerApi;
     this._playersListUrl = this.api + 'players/'
     this.service.pageTitle$.subscribe(res => this.pageTitle = res);
-}
+    this.all_players_list = this.fetchPlayersList()
+  }
+
   changePageTitleOnClick(newPageTitle: string) {
     this.service.changePageTitle(newPageTitle);  //invoke new Data
   }
 
-  async fetchPlayersList(sorted_by: string): Promise<any> {
-    let request = this._httpClient.get(this._playersListUrl)
-    if (sorted_by) {
-      let request = this._httpClient.get(this._playersListUrl, {params: {sort_by: sorted_by}})
-      request.subscribe(playersListResponse => {
-        // @ts-ignore
-        let playersListResults = playersListResponse['players'];
-        let tempPlayersList = [];
-        if (playersListResults.length > 0) {
-          for (const player of playersListResults) {
-            tempPlayersList.push(player);
-          }
-          this.playersListResults = tempPlayersList;
-        }
-      });
-    } else {
-    request.subscribe(playersListResponse => {
+  sortPlayerByName(players: any) {
+    this.playerSortedByName = players
+  }
+
+
+  sortPlayerByRanking(players: any) {
+    let playerSortedByRanking = players.sort((a: { ranking: number; },
+                                              b: { ranking: number; }) => (a.ranking < b.ranking))
+    this.playerSortedByRanking = playerSortedByRanking
+  }
+
+  async fetchPlayersList(): Promise<any> {
+    this._httpClient.get(this._playersListUrl).subscribe(playersListResponse => {
       // @ts-ignore
       let playersListResults = playersListResponse['players'];
       let tempPlayersList = [];
@@ -50,9 +51,8 @@ export class PlayersComponent implements OnInit {
         for (const player of playersListResults) {
           tempPlayersList.push(player);
         }
-        this.playersListResults = tempPlayersList;
+        this.all_players_list = tempPlayersList;
       }
     });
-  }
   };
 }

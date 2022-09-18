@@ -10,11 +10,15 @@
           <a>Mise à jour du classement d'un joueur</a>
         </li>
         <li>
-          <a (click)="fetchPlayersList('')">Lister les joueurs par Nom<span class="arrow right"></span></a>
+          <a (click)="sortPlayerByName(all_players_list)">Lister les joueurs par Nom<span class="arrow right"></span></a>
         </li>
         <li>
-          <a (click)="fetchPlayersList('ranking')">Lister les joueurs par Classement<span class="arrow right"></span></a>
+          <a (click)="sortPlayerByRanking(all_players_list)">Lister les joueurs par Classement<span class="arrow right"></span></a>
         </li>
     </ul>
-    <app-players-list *ngIf="playersListResults" [playersListResults]="playersListResults"></app-players-list>
+    <app-players-list *ngIf="playerSortedByName || playerSortedByRanking"
+                      [playerSortedByName]="playerSortedByName"
+                      [playerSortedByRanking]="playerSortedByRanking">
+
+    </app-players-list>
 </div>
