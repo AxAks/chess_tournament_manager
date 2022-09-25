@@ -4,6 +4,7 @@ import {CommonService} from "../../commons/commons.service";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ModalService} from "../../_modal";
 
 @Component({
   selector: 'app-add-player-form',
@@ -18,12 +19,20 @@ export class AddPlayerFormComponent implements OnInit {
   _playersUrl!: string
   playerForm!: FormGroup
   birthdate!: FormControl;
-  lastName!: FormControl;
-  firstName!: FormControl;
+  last_name!: FormControl;
+  first_name!: FormControl;
+  genders = [
+    { value: "MALE", name: "Homme" },
+    { value: "FEMALE", name: "Femme" },
+  ];
   gender!: FormControl;
   ranking!: FormControl;
+  newPlayer!: any;
 
-  constructor(private _httpClient: HttpClient, private service: CommonService, private formBuilder: FormBuilder,) {
+  constructor(private _httpClient: HttpClient,
+              private service: CommonService,
+              private formBuilder: FormBuilder,
+              private modalService: ModalService) {
   };
 
   ngOnInit(): void {
@@ -39,11 +48,28 @@ export class AddPlayerFormComponent implements OnInit {
     })
   };
 
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
   savePlayer() {
     const form = this.playerForm.value;
-    this._httpClient.post(this._playersUrl, form).subscribe();
-    this.playerForm.reset();
-    alert("Nouveau Joueur Créé");
-  }
+    // @ts-ignore
+    form['last_name'] = this.playerForm.get('lastName').value;
+    delete form['lastName']
+    // @ts-ignore
+    form['first_name'] = this.playerForm.get('firstName').value;
+    delete form['firstName']
+    this._httpClient.post(this._playersUrl, form).subscribe((response: any) => {
+      console.log(response)
+
+      this.newPlayer = response.new_player;
+      this.playerForm.reset();
+      this.openModal('player-created-modal')
+    })
+  };
 }
 

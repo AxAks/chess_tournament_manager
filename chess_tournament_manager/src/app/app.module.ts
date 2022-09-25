@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddPlayerFormComponent } from './forms/add-player-form/add-player-form.component';
 import { AddTournamentFormComponent } from './forms/add-tournament-form/add-tournament-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ModalModule} from "./_modal/";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]

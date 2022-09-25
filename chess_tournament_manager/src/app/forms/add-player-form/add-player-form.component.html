@@ -1,3 +1,12 @@
+<jw-modal id="player-created-modal" (click)="closeModal('player-created-modal');">
+  <h1>" Nouveau Joueur Créé !"</h1>
+  <ul *ngIf="newPlayer">
+    <li> {{newPlayer.identifier}} </li>
+    <li> {{newPlayer.first_name}} </li>
+    <li> {{newPlayer.last_name}} </li>
+  </ul>
+</jw-modal>
+
 <form [formGroup]="playerForm">
   <div class="player-form-group">
     <label for="lastName">Nom: </label>
@@ -22,9 +31,11 @@
 
   <div class="player-form-group">
     <label for="gender">Genre: </label>
-    <input type="text" placeholder ="Genre" id="gender"
-           formControlName="gender"
-           [(ngModel)]="playerModel.gender" name="gender">
+      <select formControlName="gender"
+              [(ngModel)]="playerModel.gender" name="gender"
+              id="gender">
+        <option *ngFor="let gender of genders" [ngValue]="gender.value">{{gender.name}}</option>
+      </select>
   </div>
 
   <div class="player-form-group">
