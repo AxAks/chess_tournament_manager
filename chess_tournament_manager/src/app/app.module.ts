@@ -12,7 +12,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddPlayerFormComponent } from './forms/add-player-form/add-player-form.component';
 import { AddTournamentFormComponent } from './forms/add-tournament-form/add-tournament-form.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import {FormsModule} from "@angular/forms";
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]

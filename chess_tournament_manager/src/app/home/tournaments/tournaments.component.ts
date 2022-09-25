@@ -35,13 +35,13 @@ export class TournamentsComponent implements OnInit {
 
   sortTournamentsByDates(tournaments: any) {
     let tournamentsSortedByDates = tournaments.sort((a: { start_date: string },
-                                           b: { start_date: string }) => (a.start_date > b.start_date))
+                                           b: { start_date: string }) => (a.start_date < b.start_date))
     this.tournamentsSortedByDates = tournamentsSortedByDates
   }
 
   sortTournamentsByLocation(tournaments: any) {
     let tournamentsSortedByLocation = tournaments.sort((a: { location: string; },
-                                              b: { location: string; }) => (a.location > b.location))
+                                              b: { location: string; }) => (a.location < b.location))
     this.tournamentsSortedByLocation = tournamentsSortedByLocation
   }
 

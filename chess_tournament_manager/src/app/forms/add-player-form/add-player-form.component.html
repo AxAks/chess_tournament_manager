@@ -1,34 +1,40 @@
-<form>
-  <div class="form-group">
+<form [formGroup]="playerForm">
+  <div class="player-form-group">
     <label for="lastName">Nom: </label>
-    <input type="text" class="form-control" id="lastName"
-           [(ngModel)]="model.lastName" name="lastName">
+    <input type="text"  placeholder ="Nom" id="lastName"
+           formControlName="lastName"
+           [(ngModel)]="playerModel.lastName" name="lastName">
   </div>
 
-  <div class="form-group">
+  <div class="player-form-group">
     <label for="firstName">Prénom: </label>
-    <input type="text" class="form-control" id="firstName"
-           [(ngModel)]="model.firstName" name="firstName">
+    <input type="text"  placeholder ="Prénom" id="firstName"
+           formControlName="firstName"
+           [(ngModel)]="playerModel.firstName" name="firstName">
   </div>
 
-  <div class="form-group">
+  <div class="player-form-group">
     <label for="birthdate">Date de Naissance: </label>
-    <input type="text" class="form-control" id="birthdate"
-           [(ngModel)]="model.birthdate" name="birthdate">
+    <input type="text" placeholder ="Date de Naissance" id="birthdate"
+           formControlName="birthdate"
+           [(ngModel)]="playerModel.birthdate" name="birthdate">
   </div>
 
-  <div class="form-group">
+  <div class="player-form-group">
     <label for="gender">Genre: </label>
-    <input type="text" class="form-control" id="gender"
-           [(ngModel)]="model.gender" name="gender">
+    <input type="text" placeholder ="Genre" id="gender"
+           formControlName="gender"
+           [(ngModel)]="playerModel.gender" name="gender">
   </div>
 
-  <div class="form-group">
+  <div class="player-form-group">
     <label for="ranking">Classement: </label>
-    <input type="text" class="form-control" id="ranking"
-           [(ngModel)]="model.ranking" name="ranking">
+    <input type="number" placeholder ="Classement" id="ranking"
+           formControlName="ranking"
+           [(ngModel)]="playerModel.ranking" name="ranking">
   </div>
   <div>
-    <button (click)="onSubmit()">Enregister le joueur</button>
+    <button type="submit" (click)="savePlayer()">Enregister le joueur</button>
   </div>
 </form>
+
